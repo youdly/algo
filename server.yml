@@ -54,7 +54,7 @@
               algo_local_dns: {{ algo_local_dns }}
               algo_ssh_tunneling: {{ algo_ssh_tunneling }}
               algo_windows: {{ algo_windows }}
-              algo_store_cakey: {{ algo_store_cakey }}
+              algo_store_pki: {{ algo_store_pki }}
               IP_subject_alt_name: {{ IP_subject_alt_name }}
               ipsec_enabled: {{ ipsec_enabled }}
               wireguard_enabled: {{ wireguard_enabled }}
@@ -73,11 +73,20 @@
             force: true
           when: inventory_hostname == 'localhost'
 
+        - import_tasks: playbooks/tmpfs/umount.yml
+          when:
+            - pki_in_tmpfs
+            - not algo_store_pki
+            - ansible_system == "Linux" or
+              ansible_system == "Darwin"
+          become: false
+          delegate_to: localhost
+
         - debug:
             msg:
               - "{{ congrats.common.split('\n') }}"
               - "    {{ congrats.p12_pass if algo_ssh_tunneling or ipsec_enabled else '' }}"
-              - "    {{ congrats.ca_key_pass if algo_store_cakey and ipsec_enabled else '' }}"
+              - "    {{ congrats.ca_key_pass if algo_store_pki and ipsec_enabled else '' }}"
               - "    {{ congrats.ssh_access if algo_provider != 'local' else ''}}"
         tags: always
       rescue:

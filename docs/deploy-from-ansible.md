@@ -18,7 +18,7 @@ ansible-playbook main.yml -e "provider=digitalocean
                                 local_dns=true
                                 ssh_tunneling=true
                                 windows=false
-                                store_cakey=true
+                                store_pki=true
                                 region=ams3
                                 do_token=token"
 ```
@@ -35,7 +35,7 @@ See below for more information about providers and extra variables
 - `local_dns` - (Optional) Enable a DNS resolver. Default: false
 - `ssh_tunneling` - (Optional) Enable SSH tunneling for each user. Default: false
 - `windows` - (Optional) Enables compatible ciphers and key exchange to support Windows clients, less secure. Default: false
-- `store_cakey` - (Optional) Whether or not keep the CA key (required to add users in the future, but less secure). Default: false
+- `store_pki` - (Optional) Whether or not keep the PKI (required to add users in the future, but less secure). Default: false
 
 If any of those unspecified ansible will ask the user to input
 

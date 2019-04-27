@@ -35,7 +35,7 @@ What provider would you like to use?
     7. Scaleway
     8. OpenStack (DreamCompute optimised)
     9. Install to existing Ubuntu 18.04 server (Advanced)
-  
+
 Enter the number of your desired provider
 :
 1
@@ -68,7 +68,7 @@ What region should the server be located in?
     7. sfo2     San Francisco 2
     8. sgp1     Singapore 1
     9. tor1     Toronto 1
-  
+
 Enter the number of your desired region
 [6]
 :
@@ -87,7 +87,7 @@ ansible-playbook main.yml -e "provider=digitalocean
                                 local_dns=false
                                 ssh_tunneling=false
                                 windows=false
-                                store_cakey=true
+                                store_pki=true
                                 region=nyc3
                                 do_token=token"
 ```

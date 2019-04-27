@@ -1,0 +1,11 @@
+---
+- name: Delete the PKI directory
+  file:
+    path: "/{{ tmpfs_volume_path }}/{{ tmpfs_volume_name }}"
+    state: absent
+  when: ansible_system == "Linux"
+
+- name: MacOS | eject the ram disk
+  command: diskutil eject "/{{ tmpfs_volume_path }}/{{ tmpfs_volume_name }}/" || true
+  changed_when: false
+  when: ansible_system == "Darwin"

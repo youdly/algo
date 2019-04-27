@@ -28,4 +28,14 @@
     state: started
     enabled: true
 
+- name: Delete the PKI directory
+  file:
+    path: "{{ ipsec_pki_path }}"
+    state: absent
+  become: false
+  delegate_to: localhost
+  when:
+    - not algo_store_pki
+    - not pki_in_tmpfs
+
 - meta: flush_handlers
