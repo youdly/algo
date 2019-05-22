@@ -6,11 +6,11 @@ Creating an Amazon AWS account requires giving Amazon a phone number that can re
 
 ### Select an EC2 plan
 
-The cheapest EC2 plan you can choose is the "Free Plan" a.k.a. the "AWS Free Tier." It is only available to new AWS customers, it has limits on usage, and it converts to standard pricing after 12 months (the "introductory period"). After you exceed the usage limits, after the 12 month period, or if you are an existing AWS customer, then you will pay standard pay-as-you-go service prices.
+The cheapest EC2 plan you can choose is the "Free Plan" a.k.a. the "[AWS Free Tier](https://aws.amazon.com/free/)" It is only available to new AWS customers, it has limits on usage, and it converts to standard pricing after 12 months (the "introductory period"). After you exceed the usage limits, after the 12 month period, or if you are an existing AWS customer, then you will pay standard pay-as-you-go service prices.
 
 *Note*: Your Algo instance will not stop working when you hit the bandwidth limit, you will just start accumulating service charges on your AWS account.
 
-As of the time of this writing (July 2018), the Free Tier limits include "750 hours of Amazon EC2 Linux t2.micro instance  usage" per month, 15 GB of bandwidth (outbound) per month, and 30 GB of cloud storage. Algo will not even use 1% of the storage limit, but you may have to monitor your bandwidth usage or keep an eye out for the email from Amazon when you are about to exceed the Free Tier limits.
+As of the time of this writing (May 2019), the Free Tier limits include "750 hours of Amazon EC2 Linux t2.micro instance usage" per month, 15 GB of bandwidth (outbound) per month, and 30 GB of cloud storage. Algo will not even use 1% of the storage limit, but you may have to monitor your bandwidth usage or keep an eye out for the email from Amazon when you are about to exceed the Free Tier limits.
 
 ### Create an AWS permissions policy
 
@@ -55,15 +55,17 @@ $ ./algo
 
   What provider would you like to use?
     1. DigitalOcean
-    2. Amazon EC2
-    3. Microsoft Azure
-    4. Google Compute Engine
-    5. Scaleway
-    6. OpenStack (DreamCompute optimised)
-    7. Install to existing Ubuntu 16.04 server (Advanced)
+    2. Amazon Lightsail
+    3. Amazon EC2
+    4. Vultr
+    5. Microsoft Azure
+    6. Google Compute Engine
+    7. Scaleway
+    8. OpenStack (DreamCompute optimised)
+    9. Install to existing Ubuntu 18.04 server (Advanced)
 
 Enter the number of your desired provider
-: 2
+: 3
 ```
 
 Next you will be asked for the AWS Access Key (Access Key ID) and AWS Secret Key (Secret Access Key) that you received in  the CSV file when you setup the account (don't worry if you don't see your text entered in the console; the key input is  hidden here by Algo).
@@ -90,22 +92,22 @@ After entering the server name, the script ask which region you wish to setup yo
 
 ```
   What region should the server be located in?
-    1.   us-east-1           US East (N. Virginia)
-    2.   us-east-2           US East (Ohio)
-    3.   us-west-1           US West (N. California)
-    4.   us-west-2           US West (Oregon)
-    5.   ca-central-1        Canada (Central)
-    6.   eu-central-1        EU (Frankfurt)
-    7.   eu-west-1           EU (Ireland)
-    8.   eu-west-2           EU (London)
-    9.   eu-west-3           EU (Paris)
-    10.  ap-northeast-1      Asia Pacific (Tokyo)
-    11.  ap-northeast-2      Asia Pacific (Seoul)
-    12.  ap-northeast-3      Asia Pacific (Osaka-Local)
-    13.  ap-southeast-1      Asia Pacific (Singapore)
-    14.  ap-southeast-2      Asia Pacific (Sydney)
-    15.  ap-south-1          Asia Pacific (Mumbai)
-    16.  sa-east-1           South America (São Paulo)
+    1.  ap-northeast-1      Asia Pacific (Tokyo)
+    2.  ap-northeast-2      Asia Pacific (Seoul)
+    3.  ap-south-1          Asia Pacific (Mumbai)
+    4.  ap-southeast-1      Asia Pacific (Singapore)
+    5.  ap-southeast-2      Asia Pacific (Sydney)
+    6.  ca-central-1        Canada (Central)
+    7.  eu-central-1        EU (Frankfurt)
+    8.  eu-north-1          EU (Stockholm)
+    9.  eu-west-1           EU (Ireland)
+    10. eu-west-2           EU (London)
+    11. eu-west-3           EU (Paris)
+    12. sa-east-1           South America (São Paulo)
+    13. us-east-1           US East (N. Virginia)
+    14. us-east-2           US East (Ohio)
+    15. us-west-1           US West (N. California)
+    16. us-west-2           US West (Oregon)
 
 Enter the number of your desired region:
 [1]: 10
